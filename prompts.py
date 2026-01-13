@@ -3,53 +3,35 @@ def build_prompt(text: str) -> str:
 You are an academic assistant.
 
 Tasks:
-1. Write ONE clear, well-structured summary (max 1000 words)
-2. Create 8–10 unique quiz questions with answers
-3. Provide exactly 3 relevant YouTube search terms
+1. Write a concise summary in **5–7 bullet points only**
+2. Each bullet must be **1–2 lines max**
+3. Focus only on **definitions, syntax, and key concepts**
+4. Create 5–6 quiz questions with short answers
+5. Give exactly 3 YouTube search terms
 
 Rules:
 - Use only the provided text
-- Do not repeat ideas or questions
-- Do not add external information
-- Keep language simple and technical
-- Keep answers concise
+- Be concise and technical
+- Avoid repetition
+- No paragraphs, bullets only for summary
 
 Text:
 {text}
 
-Format strictly as:
+Format strictly as Markdown:
 
-SUMMARY:
-<single combined summary>
+### Summary
+- point 1
+- point 2
 
-QUIZ:
-Q1:
-A1:
-Q2:
-A2:
-...
+### Quiz
+1. **Question:** ...
+   **Answer:** ...
+2. **Question:** ...
+   **Answer:** ...
 
-YOUTUBE:
-1.
-2.
-3.
-"""
-def build_chunk_prompt(text: str) -> str:
-    return f"""
-You are an academic assistant.
-
-Task:
-- Extract concise technical notes as bullet points.
-- Focus on definitions, rules, syntax, and examples.
-- Do NOT write a summary.
-- Do NOT create quiz questions.
-- Do NOT give YouTube topics.
-
-Rules:
-- Use only the provided text.
-- No repetition.
-- Keep bullets short and factual.
-
-Text:
-{text}
+### YouTube Search Terms
+1. Search Term 1
+2. Search Term 2
+3. Search Term 3
 """
